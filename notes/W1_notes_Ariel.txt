@@ -1,0 +1,199 @@
+Kinect + Processing Workshop (Kikko.fr).
+
+ 
+
+1 ) Create functions this way (make code simpler). Example:
+
+ 
+
+void draw(){
+
+ 
+
+//calls the background color each time (refresh)
+
+ 
+
+background(0);
+
+ 
+
+//calls the external function
+
+ 
+
+update();
+
+ 
+
+}
+
+ 
+
+//external function
+
+ 
+
+update(){
+
+ 
+
+//etc, etc
+
+ 
+
+}
+
+ 
+
+Pro Tip: Call the external function before describing all the other elements in the draw function.
+
+ 
+
+2 ) Classes:
+
+ 
+
+Processing considers that the sketch with the same name as the folder it's in is the main sketch. All other sketches inside the folder are classes.
+
+ 
+
+Named the following way:
+
+ 
+
+Circle redCircle;
+
+Circle greenCircle;
+
+ 
+
+void setup() {
+
+ 
+
+  // setup the size of the viewport and the renderer type
+
+  size(640, 480, OPENGL);
+
+ 
+
+  color red = color(255, 0, 0);
+
+  redCircle = new Circle( red );
+
+ 
+
+  color green = color(0, 255, 0);
+
+  greenCircle = new Circle( green );
+
+ 
+
+  // setup some drawing settings
+
+  ellipseMode(CENTER);
+
+  noStroke();
+
+}
+
+ 
+
+3 ) Arrays:
+
+ 
+
+Named the following way: Circle[] circles;
+
+ 
+
+The for loop: it will execute the code inside the loop if and only if the required condition is true.
+
+ 
+
+4 ) Libraries:
+
+ 
+
+Import nameofthelibrary.*;
+
+ 
+
+nameofthelibrary nameoftheobject;
+
+ 
+
+void setup() {
+
+ 
+
+  // setup the size of the viewport and the renderer type
+
+  size(640, 480, OPENGL);
+
+ 
+
+  // init the SimpleOpenNI library
+
+  nameoftheobject = new SimpleOpenNI(this);
+
+ 
+
+5) Kinect example sketch:
+
+ 
+
+kinect.drawColorImage(); //video image
+
+//vs
+
+kinect.drawDephtImage(); //point cloud
+
+ 
+
+kinect.drawSkeletons(); //display skeleton lines
+
+ 
+
+---------
+
+ 
+
+Kinect kinect;
+
+Arraylist: dynamic array list that depends of the number of users.
+
+ 
+
+for (number of users){
+
+position of the head and the limbs
+
+draw
+
+}
+
+ 
+
+print.ln //displays information about the status of the detected user
+
+ 
+
+-------
+
+ 
+
+To Do List:
+
+ 
+
+Make illustrations and conceptual sketches for new kinect projects.
+
+ 
+
+Find processing sketches that work using boids related to a certain position (i.e. the mouse position).
+
+ 
+
+Notes: Ariel Martin-Perez (teknad@gmail.com)

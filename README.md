@@ -39,7 +39,10 @@ Day 3 :
 
 Program :
 
-* To be determined
+* Introduction to new files
+* Introduction to ControlP5
+* Demo of the workflow to customize the demo
+* Free experimentation
 
 Day 4 :
 -------------------------

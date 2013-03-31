@@ -23,8 +23,6 @@ class Img extends PVector {
     scale = initScale;
     alpha = initAlpha;
     
-    bGrowing = true;
-    
     rotationDest = random(to_rotationRandom) + to_rotation;
   }
   
@@ -43,26 +41,10 @@ class Img extends PVector {
     y += velocity.y;
     
     alpha *= alphaModifier;
-    
-    if(bGrowing == true) {
-      scale = scale * 1.05;
-      if(scale > scaleMax) {
-        bGrowing = false;
-      }
-    }
-    else {
-      scale = scale * 0.95;
-    }
+    scale *= scaleModifier;
     
     // return validity of this image
-    boolean isValid = true;
-    if(bGrowing == false) {
-      if(scale < 0.1) {
-        isValid = false;
-      }
-    }
-    
-    //boolean isValid = (bGrowing == true) || (scale < 0.1);
+    boolean isValid = alpha > 0.1;
     
     return isValid;
   }

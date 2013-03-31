@@ -1,0 +1,287 @@
+DAY 2
+
+ 
+
+Sketch W06_Demo
+
+ 
+
+// In the Img folder
+
+ 
+
+// In the Img class
+
+ 
+
+    numUpdates = 0;
+
+    rotation = 0;
+
+    scale = 1;
+
+    acc = 0.95;
+
+    alpha = 1;
+
+ 
+
+// These are the default values when the sketch starts to run. You can modify them.
+
+ 
+
+------
+
+ 
+
+// In the Img folder
+
+ 
+
+// In the update function
+
+ 
+
+numUpdates++;  //= numUpdates+1 (the number of updates grows one by one in each cycle).
+
+ 
+
+    boolean isValid = alpha > 0.09;
+
+ 
+
+// Changing the values of this condition allows us to control when the pixel shapes will disappear (!).
+
+ 
+
+//Examples:
+
+ 
+
+boolean isValid = velocity.x > 0.1; //pictures flow only in one sense.
+
+ 
+
+boolean isValid = velocity.x > 0.1 && alpha > 0.09; //pictures appear only when the two conditions are valid.
+
+------
+
+ 
+
+Install library Control P5 to add sliders to your sketch.
+
+ 
+
+http://www.sojamo.de/libraries/controlP5/#installation
+
+ 
+
+------
+
+ 
+
+You can change / delete / add the images in the data folder to change the moving pictures in the sketch. You should use light, transparent png pictures.
+
+ 
+
+------
+
+ 
+
+Sketch W07_Demo
+
+ 
+
+Main sketch
+
+ 
+
+// To use it without kinect, change: boolean bUseKinect = false;
+
+ 
+
+void setupSliders (){
+
+ 
+
+//modify range values to obtain a wider or narrower difference between the values in the sketch.
+
+ 
+
+// Frequence = inverse of the number of pictures par update.
+
+ 
+
+// AlphaModyfier = change the value of alpha (opacity) through time.
+
+ 
+
+// ToRotation = final value of the rotation.
+
+ 
+
+}
+
+ 
+
+------
+
+ 
+
+In the Kinect folder:
+
+ 
+
+void drawSkeleton(int userId)
+
+  {
+
+    stroke(0,0,255);
+
+    strokeWeight(3);
+
+   
+
+    context.drawLimb(userId, SimpleOpenNI.SKEL_HEAD, SimpleOpenNI.SKEL_NECK);
+
+ 
+
+    context.drawLimb(userId, SimpleOpenNI.SKEL_NECK, SimpleOpenNI.SKEL_LEFT_SHOULDER);
+
+    context.drawLimb(userId, SimpleOpenNI.SKEL_LEFT_SHOULDER, SimpleOpenNI.SKEL_LEFT_ELBOW);
+
+    context.drawLimb(userId, SimpleOpenNI.SKEL_LEFT_ELBOW, SimpleOpenNI.SKEL_LEFT_HAND);
+
+ 
+
+// (…)
+
+//Lists the positions of all the Kinect skeleton nodes.
+
+ 
+
+  }
+
+ 
+
+// Example: make pictures flow from the head instead of the arms:
+
+ 
+
+// Main sketch:
+
+ 
+
+{
+
+  UserVisuals newUser = new UserVisuals(userId);
+
+  newUser.addJoint(SimpleOpenNI.SKEL_LEFT_HAND);
+
+  newUser.addJoint(SimpleOpenNI.SKEL_RIGHT_HAND);
+
+  userVisuals.add(newUser);
+
+}
+
+ 
+
+-> Change :
+
+ 
+
+{
+
+  UserVisuals newUser = new UserVisuals(userId);
+
+  newUser.addJoint(SimpleOpenNI.SKEL_HEAD);
+
+  userVisuals.add(newUser);
+
+}
+
+ 
+
+// Done! Pictures flow now from the head position!
+
+ 
+
+------
+
+ 
+
+Warning: if you plan to increase a value by multiplication, never set the initial value to 0. Set it to 0.1 instead!
+
+ 
+
+&& -> and
+
+ıı (alt+shift+n) -> or
+
+ 
+
+------
+
+ 
+
+How to add a new Control P5 slider
+
+ 
+
+Main sketch
+
+ 
+
+1) Add new float value (scaleMax).
+
+ 
+
+Kinect    kinect;
+
+ArrayList userVisuals;
+
+ 
+
+float frequence = 1;
+
+float initScale = 1;
+
+float initAlpha = 1;
+
+[…]
+
+float scaleMax=1.2;
+
+ 
+
+2) Incorporate it to the slider zone
+
+ 
+
+void setupSliders()
+
+{
+
+  cp5 = new ControlP5(this);
+
+  cp5.addSlider("frequence").setPosition(5, 5).setRange(0.3, 2);
+
+  cp5.addSlider("initScale").setPosition(5,20).setRange(0, 1.5);
+
+  cp5.addSlider("initAlpha").setPosition(5,35).setRange(0, 1.0);
+
+  […]
+
+  cp5.addSlider("ScaleMax").setPosition(5,125).setRange(1, 5);
+
+}
+
+ 
+
+3) Use the value ScaleMax inside your variables. Done!
+
+ 
+
+------
+
+ 
