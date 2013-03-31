@@ -14,9 +14,9 @@ void setup() {
 void draw() {
   
   // start drawing on a fresh new black background
-  background(0, 0, 0);
+  background(255, 128, 0);
   
   // draw our circle in red
   fill(255, 0, 0);
-  ellipse(mouseX, mouseY, 50, 50);
+  ellipse(100, 100, 50, 50);
 }

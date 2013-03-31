@@ -15,8 +15,8 @@ void setup() {
   // init the default values of our properties
   x = 320;
   y = 240;
-  speedX = random(3) + 2;
-  speedY = random(3) + 2;
+  speedX = random(13) + 2;
+  speedY = random(13) + 2;
   
   // setup some drawing settings
   ellipseMode(CENTER);

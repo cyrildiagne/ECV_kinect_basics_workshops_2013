@@ -20,12 +20,14 @@ void draw() {
   background(0);
   
   kinect.update();
-  
+   
   kinect.drawColorImage();
   //kinect.drawSkeletons();
   
+  
   drawUsers();
 }
+
 
 void drawUsers() {
   

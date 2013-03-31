@@ -33,7 +33,7 @@ class User
   
   void draw() {
     // skip the head
-    for(int i=1; i<3; i++)
+    for(int i=0; i<3; i++)
       particles[i].draw();
   }
 }

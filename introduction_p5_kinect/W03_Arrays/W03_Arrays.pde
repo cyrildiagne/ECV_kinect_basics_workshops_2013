@@ -9,7 +9,7 @@ void setup() {
   // setup the size of the viewport and the renderer type
   size(640, 480, OPENGL);
   
-  numCircles = 50;
+  numCircles = 10;
   circles = new Circle[numCircles];
   
   for(int i=0; i<numCircles; i++) {
