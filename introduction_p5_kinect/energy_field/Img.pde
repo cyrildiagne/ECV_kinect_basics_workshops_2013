@@ -21,15 +21,16 @@ class Img extends PVector {
     
     rotation = 0;
     scale = initScale;
-    alpha = initAlpha;
+    alpha = 0.8 + random(0.2);
     
     rotationDest = random(to_rotationRandom) + to_rotation;
+    rotation = atan2(velocity.y, velocity.x) / 3.14 * 180;
   }
   
   boolean update()
   {
-    dRotation = (rotationDest - rotation) * 0.05;
-    rotation += dRotation;
+    //dRotation = (rotationDest - rotation) * 0.05;
+    //rotation += dRotation;
     
     // apply friction
     velocity.x *= speedModifier;
